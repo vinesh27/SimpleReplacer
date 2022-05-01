@@ -3,5 +3,5 @@ version: '${project.version}'
 main: io.github.vinesh27.simplereplacer.SimpleReplacer
 api-version: 1.18
 authors: [ vinesh27, Seby ]
-description: A multipurpose message replacing message (Can be used for censoring)
+description: A multipurpose message replacing message (Can be used for censoring with fun)
 website: vinesh27.github.io
