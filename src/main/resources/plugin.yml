@@ -5,3 +5,7 @@ api-version: 1.18
 authors: [ vinesh27, Seby ]
 description: A multipurpose message replacing message (Can be used for censoring with fun)
 website: vinesh27.github.io
+commands:
+  replacerReload:
+    usage: /replacer reload
+    description: Reloads the config
