@@ -9,7 +9,9 @@ public class MessageEvent implements Listener {
     @EventHandler(priority = EventPriority.HIGH)
     public void onMessage(AsyncPlayerChatEvent e) {
         String[] wordsToReplace = SimpleReplacer.replacements.keySet().toArray(new String[0]);
-        for (String word : wordsToReplace)
-            e.setMessage(e.getMessage().replaceAll(word, SimpleReplacer.replacements.get(word)));
+        for (String word : wordsToReplace) {
+            if (e.getMessage().contains(word))
+                e.setMessage(e.getMessage().replace(word, SimpleReplacer.replacements.get(word)));
+        }
     }
 }
