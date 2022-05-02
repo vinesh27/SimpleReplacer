@@ -23,7 +23,8 @@ public final class SimpleReplacer extends JavaPlugin {
                 .forEach(key ->
                     replacements.put(key, getConfig().getString("replacements." + key)));
         }
-    
+        this.getCommand("replacerReload").setExecutor(new ReloadCommand(this));
+        getServer().getPluginManager().registerEvents(new MessageEvent(), this);
         Bukkit.getConsoleSender().sendMessage(ChatColor.GOLD + "Loaded " + replacements.size() + " replacements");
     }
     
