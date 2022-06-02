@@ -1,4 +1,15 @@
 replacements:
-  textToReplace: "Text To Replace With"
-  textToReplace2: "Text To Replace With"
-  textToReplace3: "Text To Replace With"
+  textToReplace:
+    replacement: "Text To Replace With"
+    hover: true
+    hoverText: "this will show when you hover over it"
+
+  textToReplace2:
+    replacement: "Text To Replace With"
+    hover: true
+    hoverText: "this will show when you hover over it"
+
+  textToReplace3:
+    replacement: "Text To Replace With"
+    hover: true
+    hoverText: "this will show when you hover over it"

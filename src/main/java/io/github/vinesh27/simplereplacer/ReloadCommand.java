@@ -15,11 +15,16 @@ public class ReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         plugin.reloadConfig();
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<String, Replacement> map = new HashMap<>();
         plugin.getConfig().getConfigurationSection("replacements")
-            .getKeys(false)
-            .forEach(key ->
-                map.put(key, plugin.getConfig().getString("replacements." + key)));
+                .getKeys(false)
+                .forEach(key ->
+                    map.put(key,
+                        new Replacement(
+                                plugin.getConfig().getString("replacements." + key + ".replacement"),
+                                plugin.getConfig().getBoolean("replacements." + key + ".hover"),
+                                plugin.getConfig().getString("replacements." + key + ".hoverText")
+                        )));
         SimpleReplacer.replacements = map;
         sender.sendMessage("Reloaded config");
         return true;

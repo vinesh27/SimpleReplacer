@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public final class SimpleReplacer extends JavaPlugin {
     
-    public static HashMap<String, String> replacements = new HashMap<>();
+    public static HashMap<String, Replacement> replacements = new HashMap<>();
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage(ChatColor.GOLD + "SimpleReplacer enabled");
@@ -21,7 +21,12 @@ public final class SimpleReplacer extends JavaPlugin {
             getConfig().getConfigurationSection("replacements")
                 .getKeys(false)
                 .forEach(key ->
-                    replacements.put(key, getConfig().getString("replacements." + key)));
+                    replacements.put(key,
+                        new Replacement(
+                            this.getConfig().getString("replacements." + key + ".replacement"),
+                            this.getConfig().getBoolean("replacements." + key + ".hover"),
+                            this.getConfig().getString("replacements." + key + ".hoverText")
+                        )));
         }
         this.getCommand("replacerReload").setExecutor(new ReloadCommand(this));
         getServer().getPluginManager().registerEvents(new MessageEvent(), this);
